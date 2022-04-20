@@ -64,7 +64,7 @@ namespace RUN.WindowFolder
                 return;
             DBEntities.GetContext().Database.ExecuteSqlCommand($"delete from Product where IdProduct = ('{(DgProducts.SelectedItem as Product).IdProduct}')");
             updateDataGrid();
-            ClassMB.Information("Вы успешно удалили строчку");
+            ClassMB.Information("Вы успешно удалили продукт");
         }
 
         private void DgProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)

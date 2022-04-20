@@ -24,14 +24,19 @@ namespace RUN.WindowFolder
         public WindowListUsers()
         {
             InitializeComponent();
-            DgClient.ItemsSource = DBEntities.GetContext().Zakaz.ToList().OrderBy(u => u.Patronymic);
+            DgClient.ItemsSource = DBEntities.GetContext().User.ToList().Where(u => u.Role.Name == "Пользователь");
+        }
+
+        private void updateDataGrid()
+        {
+            DgClient.ItemsSource = DBEntities.GetContext().User.ToList().Where(u => u.Role.Name == "Пользователь");
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                DgClient.ItemsSource = DBEntities.GetContext().Zakaz.Where
+                DgClient.ItemsSource = DBEntities.GetContext().User.Where
                     (c => c.Surname.StartsWith(tbSearch.Text)
                     || c.Name.StartsWith(tbSearch.Text)).ToList();
 
@@ -51,7 +56,22 @@ namespace RUN.WindowFolder
 
         private void DgClient_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            new WindowEditUser(DgClient.SelectedItem as Zakaz).ShowDialog();
+            new WindowEditUser(DgClient.SelectedItem as User).ShowDialog();
+        }
+
+        private void IAdd_Click(object sender, MouseButtonEventArgs e)
+        {
+            new WindowAddUser().ShowDialog();
+            updateDataGrid();
+        }
+
+        private void IDel_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (DgClient.SelectedItem == null)
+                return;
+            DBEntities.GetContext().Database.ExecuteSqlCommand($"delete from [User] where IdUser = ('{(DgClient.SelectedItem as User).IdUser}')");
+            updateDataGrid();
+            ClassMB.Information("Вы успешно удалили пользователя");
         }
     }
 }

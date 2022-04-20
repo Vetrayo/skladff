@@ -64,8 +64,13 @@ namespace RUN.WindowFolder
                 {
                     DBEntities.GetContext().User.Add(new User()
                     {
+                        IdUser = 2,
                         Login = TbLogin.Text,
                         Password = PbPassword.Password,
+                        Surname = TbSurname.Text,
+                        Name = TbName.Text,
+                        Patronymic = TbPatronymic.Text,
+                        Phone = TbPhone.Text,
                         IdRole = 3,
                     });
                     DBEntities.GetContext().SaveChanges();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RUN.DataFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using RUN.DataFolder;
 using System.Windows.Shapes;
 
 namespace RUN.WindowFolder
@@ -21,15 +21,19 @@ namespace RUN.WindowFolder
     public partial class WindowEditWork : Window
     {
         string name;
-
-        public WindowEditWork(Work work)
+        public WindowEditWork(User user)
         {
             InitializeComponent();
-            name = work.Surname;
-            DataContext = work;
+            name = user.Surname;
+            DataContext = user;
         }
 
-        private void IEdit_Click(object sender, RoutedEventArgs e)
+        private void IOut_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void IEdit_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TbName.Text))
             {
@@ -42,24 +46,21 @@ namespace RUN.WindowFolder
             }
             else
             {
-                DBEntities.GetContext().Work.FirstOrDefault(z => z.Surname == name).Surname = TbSurname.Text;
-                DBEntities.GetContext().Work.FirstOrDefault(z => z.Surname == name).Name = TbName.Text;
-                DBEntities.GetContext().Work.FirstOrDefault(z => z.Surname == name).Patronymic = TbMiddleName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Surname = TbSurname.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Name = TbName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Patronymic = TbMiddleName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Login = TbLogin.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Password = TbPassword.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Phone = TbPhone.Text;
                 DBEntities.GetContext().SaveChanges();
                 ClassMB.Information("Успешно изменено");
                 this.Close();
             }
-        }
-
-        private void IOut_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }
-
     }
 }

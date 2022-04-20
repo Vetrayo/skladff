@@ -19,7 +19,7 @@
                     <StackPanel>
                         <StackPanel Margin="16 10 0 6" Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock VerticalAlignment="Center" Text="Темная тема"/>
-                            <ToggleButton Cursor="Hand" ToolTip="Включает темную тему" Margin="12 0 8 0" x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
+                            <ToggleButton Cursor="Hand" ToolTip="Темная версия приложения" Margin="12 0 8 0" x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}" Click="toggleTheme"/>
 
                         </StackPanel>
                         <Button x:Name="BExit" ToolTip="Закрыть приложение" Content="Выйти" Click="exitApp"/>

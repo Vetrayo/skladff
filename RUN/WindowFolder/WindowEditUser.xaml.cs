@@ -22,11 +22,11 @@ namespace RUN
     public partial class WindowEditUser : Window
     {
         string name;
-        public WindowEditUser(Zakaz zakaz)
+        public WindowEditUser(User user)
         {
             InitializeComponent();
-            name = zakaz.Surname;
-            DataContext = zakaz;
+            name = user.Surname;
+            DataContext = user;
         }
 
         private void IOut_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -47,9 +47,12 @@ namespace RUN
             }
             else
             {
-                DBEntities.GetContext().Zakaz.FirstOrDefault(z => z.Surname == name).Surname = TbSurname.Text;
-                DBEntities.GetContext().Zakaz.FirstOrDefault(z => z.Surname == name).Name = TbName.Text;
-                DBEntities.GetContext().Zakaz.FirstOrDefault(z => z.Surname == name).Patronymic = TbMiddleName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Surname = TbSurname.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Name = TbName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Patronymic = TbMiddleName.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Login = TbLogin.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Password = TbPassword.Text;
+                DBEntities.GetContext().User.FirstOrDefault(z => z.Surname == name).Phone = TbPhone.Text;
                 DBEntities.GetContext().SaveChanges();
                 ClassMB.Information("Успешно изменено");
                 this.Close();

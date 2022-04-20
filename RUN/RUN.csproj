@@ -105,9 +105,6 @@
     <Compile Include="DataFolder\User.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataFolder\Work.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataFolder\Zakaz.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -117,14 +114,17 @@
     <Compile Include="WindowFolder\WindowAddWork.xaml.cs">
       <DependentUpon>WindowAddWork.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowFolder\WindowAddUser.xaml.cs">
+      <DependentUpon>WindowAddUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\WindowEditProduct.xaml.cs">
       <DependentUpon>WindowEditProduct.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFolder\WindowEditUser.xaml.cs">
-      <DependentUpon>WindowEditUser.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowFolder\WindowEditWork.xaml.cs">
       <DependentUpon>WindowEditWork.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\WindowEditUser.xaml.cs">
+      <DependentUpon>WindowEditUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowFolder\WindowEditZakaz.xaml.cs">
       <DependentUpon>WindowEditZakaz.xaml</DependentUpon>
@@ -132,11 +132,14 @@
     <Compile Include="WindowFolder\WindowListProducts.xaml.cs">
       <DependentUpon>WindowListProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowFolder\WindowListWork.xaml.cs">
+      <DependentUpon>WindowListWork.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFolder\WindowListUsers.xaml.cs">
       <DependentUpon>WindowListUsers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowFolder\WindowListWork.xaml.cs">
-      <DependentUpon>WindowListWork.xaml</DependentUpon>
+    <Compile Include="WindowFolder\WindowListZakazov.xaml.cs">
+      <DependentUpon>WindowListZakazov.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowFolder\WindowListZakaz.xaml.cs">
       <DependentUpon>WindowListZakaz.xaml</DependentUpon>
@@ -156,6 +159,10 @@
     <Compile Include="WindowFolder\WindowZakaz.xaml.cs">
       <DependentUpon>WindowZakaz.xaml</DependentUpon>
     </Compile>
+    <Page Include="WindowFolder\WindowAddWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WindowFolder\WindowAuth.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,7 +180,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFolder\WindowAddWork.xaml">
+    <Page Include="WindowFolder\WindowAddUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -181,11 +188,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFolder\WindowEditUser.xaml">
+    <Page Include="WindowFolder\WindowEditWork.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFolder\WindowEditWork.xaml">
+    <Page Include="WindowFolder\WindowEditUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -197,11 +204,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WindowFolder\WindowListWork.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WindowFolder\WindowListUsers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowFolder\WindowListWork.xaml">
+    <Page Include="WindowFolder\WindowListZakazov.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

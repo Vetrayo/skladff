@@ -17,7 +17,7 @@
         <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
             <StackPanel>
 
-                <Label Content="Список клиентов" Height="40" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"
+                <Label Content="Список пользователей" Height="40" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"
                Margin="-15 10 -15 0"/>
 
                 <Image Grid.Column="0" Grid.Row="1"/>
@@ -27,15 +27,19 @@
                          Style="{StaticResource MaterialDesignTextBox}" BorderThickness="2" materialDesign:HintAssist.Hint="Поиск"
                          TextChanged="tbSearch_TextChanged" Margin="0 -30 0 0"/>
 
-                <DataGrid IsReadOnly="True" x:Name="DgClient" AutoGenerateColumns="False" HorizontalAlignment="Left" Width="500" Height="280" Margin="50 15 0 0" MouseDoubleClick="DgClient_MouseDoubleClick" FontSize="16">
+                <DataGrid IsReadOnly="True" x:Name="DgClient" AutoGenerateColumns="False" HorizontalAlignment="Left" Width="550" Height="280" Margin="50 15 0 0" MouseDoubleClick="DgClient_MouseDoubleClick" FontSize="13">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding IdZakaz}" Width="50"/>
-                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="*"/>
-                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
-                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="*"/>
+                        <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="80"/>
+                        <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="80"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="100"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="100"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="100"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="100"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Margin="680 -710 0 0" Height="60"/>
+                <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Margin="690 -725 0 0" Height="50"/>
+                <Image x:Name="IAdd" Source="/img/plus.png" MouseLeftButtonDown="IAdd_Click" Height="60" Margin="550 -400 0 0" HorizontalAlignment="Center"/>
+                <Image x:Name="IDel" Source="/img/minus.png" MouseLeftButtonDown="IDel_Click" Height="60" Margin="550 -250 0 0" HorizontalAlignment="Center"/>
             </StackPanel>
         </materialDesign:DialogHost>
     </materialDesign:Card>

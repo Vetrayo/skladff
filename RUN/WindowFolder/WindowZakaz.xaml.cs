@@ -24,20 +24,20 @@ namespace RUN.WindowFolder
         {
             InitializeComponent();
             CbProduct.ItemsSource = DBEntities.GetContext().Product.ToList().OrderBy(r => r.Name);
-
+                CbRole.ItemsSource = DBEntities.GetContext().User.ToList().Where(r => r.Role.IdRole == 3);
         }
 
         private void IZakaz_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TbSurname.Text))
+            if (string.IsNullOrWhiteSpace(CbRole.Text))
             {
-                ClassMB.Information("Введите Фамилию");
-                TbSurname.Focus();
+                ClassMB.Information("Введите логин");
+                CbRole.Focus();
             }
-            else if (string.IsNullOrWhiteSpace(TbName.Text))
+            else if (string.IsNullOrWhiteSpace(CbProduct.Text))
             {
                 ClassMB.Information("Введите Имя");
-                TbName.Focus();
+                CbProduct.Focus();
             }
             else if (string.IsNullOrWhiteSpace(TbAmount.Text))
             {
@@ -47,7 +47,7 @@ namespace RUN.WindowFolder
             {
                 try
                 {
-                    DBEntities.GetContext().Database.ExecuteSqlCommand($"insert into Zakaz(Surname, Name, Patronymic, Amount, IdProduct, IdStatus) values ('{TbSurname.Text}', '{TbName.Text}','{TbMiddleName.Text}','{TbAmount.Text}','{CbProduct.SelectedIndex}','1');");
+                    DBEntities.GetContext().Database.ExecuteSqlCommand($"insert into [Zakaz] (Amount, IdProduct, IdStatus,IdUser) values ('{TbAmount.Text}','{CbProduct.SelectedValue}','1','{CbRole.SelectedValue}');");
 
                     DBEntities.GetContext().SaveChanges();
                     ClassMB.Information("Вы успешно заказали продукты");

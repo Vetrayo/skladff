@@ -29,7 +29,7 @@ namespace RUN.WindowFolder
         {
             this.Hide();
             new WindowZakaz().ShowDialog();
-            this.ShowDialog();
+            this.Close();
         }
 
         private void IOut_Click(object sender, RoutedEventArgs e)

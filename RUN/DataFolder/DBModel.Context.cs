@@ -20,7 +20,7 @@ namespace RUN.DataFolder
         {
         }
 
-        private static DBEntities context;
+        public static DBEntities context;
 
         public static DBEntities GetContext()
         {
@@ -39,7 +39,6 @@ namespace RUN.DataFolder
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<Work> Work { get; set; }
         public virtual DbSet<Zakaz> Zakaz { get; set; }
     }
 }

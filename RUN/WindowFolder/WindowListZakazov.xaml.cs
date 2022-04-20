@@ -18,9 +18,9 @@ namespace RUN.WindowFolder
     /// <summary>
     /// Логика взаимодействия для WindowListZakaz.xaml
     /// </summary>
-    public partial class WindowListZakaz : Window
+    public partial class WindowListZakazov : Window
     {
-        public WindowListZakaz()
+        public WindowListZakazov()
         {
             InitializeComponent();
             DgZakazi.ItemsSource = DBEntities.GetContext().Zakaz.ToList().OrderBy(u => u.Status.Name);
@@ -53,11 +53,13 @@ namespace RUN.WindowFolder
             this.Close();
         }
 
-        private void DgZakazi_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void IDel_Click(object sender, MouseButtonEventArgs e)
         {
-            new WindowEditZakaz(DgZakazi.SelectedItem as Zakaz).ShowDialog();
+            if (DgZakazi.SelectedItem == null)
+                return;
+            DBEntities.GetContext().Database.ExecuteSqlCommand($"delete from [Zakaz] where IdZakaz = ('{(DgZakazi.SelectedItem as Zakaz).IdZakaz}')");
             updateDataGrid();
+            ClassMB.Information("Вы успешно удалили заказ");
         }
-
     }
 }

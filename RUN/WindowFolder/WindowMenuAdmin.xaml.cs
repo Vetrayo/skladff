@@ -37,13 +37,6 @@ namespace RUN.WindowFolder
             this.Close();
         }
 
-        private void BDGWork_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            new WindowListWork().ShowDialog();
-            this.ShowDialog();
-        }
-
         private void BDGProducts_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -51,35 +44,24 @@ namespace RUN.WindowFolder
             this.ShowDialog();
         }
 
-        public bool IsDarkTheme { get; set; }
-        private readonly PaletteHelper paletteHelper = new PaletteHelper();
-
-        private void toggleTheme(object sender, RoutedEventArgs e)
-        {
-            ITheme theme = paletteHelper.GetTheme();
-
-            if (IsDarkTheme = theme.GetBaseTheme() == BaseTheme.Dark)
-            {
-                IsDarkTheme = false;
-                theme.SetBaseTheme(Theme.Light);
-            }
-            else
-            {
-                IsDarkTheme = true;
-                theme.SetBaseTheme(Theme.Dark);
-            }
-            paletteHelper.SetTheme(theme);
-        }
-
-        private void exitApp(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+        }
+
+        private void BDGZakaz_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new WindowListZakazov().ShowDialog();
+            this.ShowDialog();
+        }
+
+        private void BDGWork_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new WindowListWork().ShowDialog();
+            this.ShowDialog();
         }
     }
 }

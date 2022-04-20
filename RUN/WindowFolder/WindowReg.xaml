@@ -6,7 +6,7 @@
          xmlns:local="clr-namespace:RUN"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Авторизация" Height="760" Width="450" 
+        Title="Авторизация" Height="780" Width="850" 
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
         WindowStartupLocation="CenterScreen">
@@ -19,14 +19,26 @@
 
                 <Label Content="Регистрация" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="0 20 0 0" FontSize="28" FontWeight="Bold" Grid.ColumnSpan="4"/>
 
-                <TextBox x:Name="TbLogin" Grid.Row="3" Margin="0 50 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите логин" BorderThickness="2"
+                <TextBox x:Name="TbLogin" Grid.Row="3" Margin="-380 30 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите логин" BorderThickness="2"
                          BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
 
-                <PasswordBox x:Name="PbPassword" Margin="0 50 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите пароль" BorderThickness="2"
+                <TextBox x:Name="TbSurname" Grid.Row="3" Margin="380 -58 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите фамилию" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <PasswordBox x:Name="PbPassword" Margin="-380 30 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите пароль" BorderThickness="2"
                          BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
 
-                <PasswordBox x:Name="PbRepeatPassword" Margin="0 50 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите пароль повторно" BorderThickness="2"
+                <TextBox x:Name="TbName" Grid.Row="3" Margin="380 -58 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите имя" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <PasswordBox x:Name="PbRepeatPassword" Margin="-380 30 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите пароль повторно" BorderThickness="2"
                          BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedPasswordBox}"/>
+
+                <TextBox x:Name="TbPatronymic" Grid.Row="3" Margin="380 -58 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите отчество" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+                <TextBox x:Name="TbPhone" Grid.Row="3" Margin="-380 30 0 0" Width="300" FontSize="18" materialDesign:HintAssist.Hint="Введите номер телефона" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="+7 999 999 999"/>
 
                 <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Height="80" Margin="210 40 0 0"/>
                 <Image x:Name="IReg" Source="/img/ok.png" MouseLeftButtonDown="IReg_Click" Height="80" Margin="-210 -85 0 0"/>

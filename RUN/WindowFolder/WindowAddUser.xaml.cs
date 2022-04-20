@@ -16,11 +16,11 @@ using RUN.DataFolder;
 namespace RUN.WindowFolder
 {
     /// <summary>
-    /// Логика взаимодействия для WindowAddWork.xaml
+    /// Логика взаимодействия для WindowAddUser.xaml
     /// </summary>
-    public partial class WindowAddWork : Window
+    public partial class WindowAddUser : Window
     {
-        public WindowAddWork()
+        public WindowAddUser()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace RUN.WindowFolder
             {
                 try
                 {
-                    DBEntities.GetContext().Database.ExecuteSqlCommand($"insert into [dbo].[User](Login,Password,Surname, Name, Patronymic, Phone, IdRole) values ('{TbLogin.Text}','{TbPassword.Text}','{TbSurname.Text}', '{TbName.Text}','{TbMiddleName.Text}','{TbPhone.Text}','2');");
+                    DBEntities.GetContext().Database.ExecuteSqlCommand($"insert into [dbo].[User](Login,Password,Surname, Name, Patronymic, Phone, IdRole) values ('{TbLogin.Text}','{TbPassword.Text}','{TbSurname.Text}', '{TbName.Text}','{TbMiddleName.Text}','{TbPhone.Text}','3');");
                     ClassMB.Information("Вы добавили пользователя");
                     this.Close();
                 }

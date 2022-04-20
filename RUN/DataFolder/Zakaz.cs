@@ -15,14 +15,13 @@ namespace RUN.DataFolder
     public partial class Zakaz
     {
         public int IdZakaz { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
         public int Amount { get; set; }
         public int IdProduct { get; set; }
         public int IdStatus { get; set; }
+        public int IdUser { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual Status Status { get; set; }
+        public virtual User User { get; set; }
     }
 }

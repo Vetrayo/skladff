@@ -6,7 +6,7 @@
 xmlns:local="clr-namespace:RUN.WindowFolder"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="600" Width="500" 
+        Height="465" Width="500" 
         WindowStartupLocation="CenterScreen"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
@@ -19,17 +19,8 @@ xmlns:local="clr-namespace:RUN.WindowFolder"
 
                 <Label Content="Заказ продуктов" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" FontWeight="Bold"
                Margin="-15 50 -15 0"/>
-                <TextBox x:Name="TbSurname" Grid.Row="1" Grid.ColumnSpan="2" Height="30" FontSize="16" Width="300" BorderBrush="{DynamicResource MaterialDesignDivider}"
-                         Margin="0 35 0 0"
-                         Style="{StaticResource MaterialDesignTextBox}" BorderThickness="2"  materialDesign:HintAssist.Hint="Фамилия" Text="{Binding Surname}" />
-
-                <TextBox x:Name="TbName" Height="30" Width="300" FontSize="16" BorderBrush="{DynamicResource MaterialDesignDivider}"
-                         Margin="0 30 0 0"
-                         Style="{StaticResource MaterialDesignTextBox}" BorderThickness="2" materialDesign:HintAssist.Hint="Имя" Text="{Binding Name}"/>
-
-                <TextBox x:Name="TbMiddleName" Height="30" Width="300" FontSize="16" BorderBrush="{DynamicResource MaterialDesignDivider}"
-                         Margin="0 30 0 0"
-                         Style="{StaticResource MaterialDesignTextBox}" BorderThickness="2" materialDesign:HintAssist.Hint="Отчество" Text="{Binding Patronymic}"/>
+                <ComboBox Name="CbRole" Height="30" Width="150" Style="{StaticResource MaterialDesignDataGridComboBox}" BorderThickness="2" BorderBrush="{StaticResource MaterialDesignDivider}" FontSize="16"
+                  SelectedItem="{Binding User}" DisplayMemberPath="Login" SelectedValuePath="IdUser" Margin="-150 30 0 0" VerticalContentAlignment="Center" materialDesign:HintAssist.Hint="Ваш логин"/>
 
                 <TextBox x:Name="TbAmount" Grid.Column="4" 
                     Text="{Binding Amount}" Grid.Row="1" Height="30" Width="300" FontSize="16" BorderBrush="{DynamicResource MaterialDesignDivider}"
@@ -40,7 +31,7 @@ xmlns:local="clr-namespace:RUN.WindowFolder"
                           Height="30" Width="100" Style="{StaticResource MaterialDesignDataGridComboBox}" Margin="0 30 200 0"
                           BorderThickness="2" BorderBrush="{StaticResource MaterialDesignDivider}" FontSize="16"
                     SelectedItem="{Binding Product}" DisplayMemberPath="Name" VerticalContentAlignment="Center"
-                    SelectedValuePath="IdProduct"/>
+                    SelectedValuePath="IdProduct" materialDesign:HintAssist.Hint="Товар"/>
 
                 <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Height="80" Margin="210 50 0 0" HorizontalAlignment="Center"/>
                 <Image x:Name="IZakaz" Source="/img/ok.png" MouseLeftButtonDown="IZakaz_Click" Height="80" Margin="-210 -85 0 0" HorizontalAlignment="Center"/>

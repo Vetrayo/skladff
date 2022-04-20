@@ -1,8 +1,9 @@
-CREATE DATABASE [SuntsovKursach]
-
-USE [SuntsovKursach]
+/****** Object:  Database [temp_materialdesign]    Script Date: 22.04.2022 18:13:26 ******/
+CREATE DATABASE [temp_materialdesign]
+ 
+USE [temp_materialdesign]
 GO
-/****** Object:  Table [dbo].[Product]    Script Date: 20.04.2022 17:03:45 ******/
+/****** Object:  Table [dbo].[Product]    Script Date: 22.04.2022 18:13:26 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -16,7 +17,7 @@ CREATE TABLE [dbo].[Product](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role]    Script Date: 20.04.2022 17:03:45 ******/
+/****** Object:  Table [dbo].[Role]    Script Date: 22.04.2022 18:13:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -30,7 +31,7 @@ CREATE TABLE [dbo].[Role](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Status]    Script Date: 20.04.2022 17:03:45 ******/
+/****** Object:  Table [dbo].[Status]    Script Date: 22.04.2022 18:13:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -44,7 +45,7 @@ CREATE TABLE [dbo].[Status](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 20.04.2022 17:03:45 ******/
+/****** Object:  Table [dbo].[User]    Script Date: 22.04.2022 18:13:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -53,6 +54,10 @@ CREATE TABLE [dbo].[User](
 	[IdUser] [int] IDENTITY(1,1) NOT NULL,
 	[Login] [nvarchar](50) NOT NULL,
 	[Password] [nvarchar](50) NOT NULL,
+	[Surname] [nvarchar](50) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Patronymic] [nvarchar](50) NULL,
+	[Phone] [nvarchar](50) NOT NULL,
 	[IdRole] [int] NOT NULL,
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
@@ -60,35 +65,17 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Work]    Script Date: 20.04.2022 17:03:45 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Work](
-	[IdWork] [int] IDENTITY(1,1) NOT NULL,
-	[Surname] [nvarchar](50) NOT NULL,
-	[Name] [nvarchar](50) NOT NULL,
-	[Patronymic] [nvarchar](50) NULL,
- CONSTRAINT [PK_Work] PRIMARY KEY CLUSTERED 
-(
-	[IdWork] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Zakaz]    Script Date: 20.04.2022 17:03:45 ******/
+/****** Object:  Table [dbo].[Zakaz]    Script Date: 22.04.2022 18:13:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Zakaz](
 	[IdZakaz] [int] IDENTITY(1,1) NOT NULL,
-	[Surname] [nvarchar](50) NOT NULL,
-	[Name] [nvarchar](50) NOT NULL,
-	[Patronymic] [nvarchar](50) NULL,
 	[Amount] [int] NOT NULL,
 	[IdProduct] [int] NOT NULL,
 	[IdStatus] [int] NOT NULL,
+	[IdUser] [int] NOT NULL,
  CONSTRAINT [PK_Zakaz] PRIMARY KEY CLUSTERED 
 (
 	[IdZakaz] ASC
@@ -123,25 +110,13 @@ INSERT [dbo].[Status] ([IdStatus], [Name]) VALUES (4, N'Отказано')
 GO
 SET IDENTITY_INSERT [dbo].[User] ON 
 GO
-INSERT [dbo].[User] ([IdUser], [Login], [Password], [IdRole]) VALUES (1, N'admin', N'admin', 1)
+INSERT [dbo].[User] ([IdUser], [Login], [Password], [Surname], [Name], [Patronymic], [Phone], [IdRole]) VALUES (1, N'admin', N'admin', N'Сунцов', N'Владимир', N'Иванович', N'+7 952 967 54 34', 1)
 GO
-INSERT [dbo].[User] ([IdUser], [Login], [Password], [IdRole]) VALUES (2, N'work', N'work', 2)
+INSERT [dbo].[User] ([IdUser], [Login], [Password], [Surname], [Name], [Patronymic], [Phone], [IdRole]) VALUES (2, N'work', N'work', N'Червинский', N'Леонид', N'Витальевич', N'+7 954 925 91 54', 2)
 GO
-INSERT [dbo].[User] ([IdUser], [Login], [Password], [IdRole]) VALUES (3, N'user', N'user', 3)
+INSERT [dbo].[User] ([IdUser], [Login], [Password], [Surname], [Name], [Patronymic], [Phone], [IdRole]) VALUES (3, N'user', N'user', N'Чукин', N'Вячеслав', N'Павлович', N'+7 905 475 34 64', 3)
 GO
 SET IDENTITY_INSERT [dbo].[User] OFF
-GO
-SET IDENTITY_INSERT [dbo].[Work] ON 
-GO
-INSERT [dbo].[Work] ([IdWork], [Surname], [Name], [Patronymic]) VALUES (1, N'Червинский', N'Леонид', N'Витальевич')
-GO
-SET IDENTITY_INSERT [dbo].[Work] OFF
-GO
-SET IDENTITY_INSERT [dbo].[Zakaz] ON 
-GO
-INSERT [dbo].[Zakaz] ([IdZakaz], [Surname], [Name], [Patronymic], [Amount], [IdProduct], [IdStatus]) VALUES (1, N'Чукин', N'Вячеслав', N'Павлович', 3, 1, 1)
-GO
-SET IDENTITY_INSERT [dbo].[Zakaz] OFF
 GO
 ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_Role] FOREIGN KEY([IdRole])
 REFERENCES [dbo].[Role] ([IdRole])
@@ -158,7 +133,12 @@ REFERENCES [dbo].[Status] ([IdStatus])
 GO
 ALTER TABLE [dbo].[Zakaz] CHECK CONSTRAINT [FK_Zakaz_Status]
 GO
+ALTER TABLE [dbo].[Zakaz]  WITH CHECK ADD  CONSTRAINT [FK_Zakaz_User] FOREIGN KEY([IdUser])
+REFERENCES [dbo].[User] ([IdUser])
+GO
+ALTER TABLE [dbo].[Zakaz] CHECK CONSTRAINT [FK_Zakaz_User]
+GO
 USE [master]
 GO
-ALTER DATABASE [SuntsovKursach] SET  READ_WRITE 
+ALTER DATABASE [temp_materialdesign] SET  READ_WRITE 
 GO

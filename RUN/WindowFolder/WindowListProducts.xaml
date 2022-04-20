@@ -33,7 +33,7 @@
                         <DataGridTextColumn Header="Продукт" Binding="{Binding Name}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Margin="670 -710 0 0" Height="60"/>
+                <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Margin="680 -725 0 0" Height="50"/>
                 <Image x:Name="IAdd" Source="/img/plus.png" MouseLeftButtonDown="IAdd_Click" Height="60" Margin="500 -400 0 0" HorizontalAlignment="Center"/>
                 <Image x:Name="IDel" Source="/img/minus.png" MouseLeftButtonDown="IDel_Click" Height="60" Margin="500 -250 0 0" HorizontalAlignment="Center"/>
             </StackPanel>

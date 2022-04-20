@@ -88,10 +88,14 @@ namespace RUN.WindowFolder
                         break;
 
                     case 2:
+                        this.Hide();
                         new WindowMenuWork().ShowDialog();
+                        this.ShowDialog();
                         break;
                     case 3:
+                        this.Hide();
                         new WindowMenuUser().ShowDialog();
+                        this.ShowDialog();
                         break;
                 }
             }
