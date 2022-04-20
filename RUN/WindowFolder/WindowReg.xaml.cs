@@ -70,9 +70,7 @@ namespace RUN.WindowFolder
                     });
                     DBEntities.GetContext().SaveChanges();
                     ClassMB.Information("Вы успешно зарегистрировались");
-                    TbLogin.Clear();
-                    PbPassword.Clear();
-                    PbRepeatPassword.Clear();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
