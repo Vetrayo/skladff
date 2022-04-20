@@ -1,0 +1,42 @@
+﻿<Window x:Class="RUN.WindowFolder.WindowListUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:RUN.WindowFolder"
+        mc:Ignorable="d"
+        Title="Список клиентов" Height="450" Width="800" 
+        WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+            <StackPanel>
+
+                <Label Content="Список клиентов" Height="40" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold"
+               Margin="-15 10 -15 0"/>
+
+                <Image Grid.Column="0" Grid.Row="1"/>
+
+                <Image Grid.ColumnSpan="2" Source="/img/search.png" Grid.Row="2" Margin="-410,15,0,0" Height="30" Width="30"/>
+                <TextBox x:Name="tbSearch"  Height="30" Width="350" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="16"
+                         Style="{StaticResource MaterialDesignTextBox}" BorderThickness="2" materialDesign:HintAssist.Hint="Поиск"
+                         TextChanged="tbSearch_TextChanged" Margin="0 -30 0 0"/>
+
+                <DataGrid IsReadOnly="True" x:Name="DgClient" AutoGenerateColumns="False" HorizontalAlignment="Left" Width="500" Height="280" Margin="50 15 0 0" MouseDoubleClick="DgClient_MouseDoubleClick" FontSize="16">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding IdZakaz}" Width="50"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="*"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Image x:Name="IOut" Source="/img/back.png" MouseLeftButtonDown="IOut_Click" Margin="680 -710 0 0" Height="60"/>
+            </StackPanel>
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+</Window>
