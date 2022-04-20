@@ -1,6 +1,6 @@
-CREATE DATABASE [DB]
+CREATE DATABASE [SuntsovKursach]
 
-USE [DB]
+USE [SuntsovKursach]
 GO
 /****** Object:  Table [dbo].[Product]    Script Date: 20.04.2022 17:03:45 ******/
 SET ANSI_NULLS ON
@@ -160,5 +160,5 @@ ALTER TABLE [dbo].[Zakaz] CHECK CONSTRAINT [FK_Zakaz_Status]
 GO
 USE [master]
 GO
-ALTER DATABASE [DB] SET  READ_WRITE 
+ALTER DATABASE [SuntsovKursach] SET  READ_WRITE 
 GO

@@ -7,18 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RUN.Data
+namespace RUN.DataFolder
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Zakaz
     {
-        public int IdUser { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int IdRole { get; set; }
+        public int IdZakaz { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Patronymic { get; set; }
+        public int Amount { get; set; }
+        public int IdProduct { get; set; }
+        public int IdStatus { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

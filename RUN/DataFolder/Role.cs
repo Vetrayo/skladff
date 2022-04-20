@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RUN.Data
+namespace RUN.DataFolder
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Zakaz
+    public partial class Role
     {
-        public int IdZakaz { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Patronymic { get; set; }
-        public int Amount { get; set; }
-        public int IdProduct { get; set; }
-        public int IdStatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.User = new HashSet<User>();
+        }
     
-        public virtual Product Product { get; set; }
-        public virtual Status Status { get; set; }
+        public int IdRole { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User { get; set; }
     }
 }

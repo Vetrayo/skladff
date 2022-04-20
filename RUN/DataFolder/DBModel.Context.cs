@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RUN.Data
+namespace RUN.DataFolder
 {
     using System;
     using System.Data.Entity;
